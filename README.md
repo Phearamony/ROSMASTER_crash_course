@@ -48,7 +48,8 @@ Optional but recommended: update your graphics driver (Intel, AMD or NVIDIA) on 
 **0.2 Add the ROS 2 package source** (from the [official Humble install guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)):
 
 ```bash
-sudo apt update && sudo apt install -y locales software-properties-common curl
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y locales software-properties-common curl git
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -75,6 +76,13 @@ source ~/.bashrc
 ```
 
 **0.5 Check it works.** Terminal 1: `ros2 run demo_nodes_cpp talker`. Terminal 2: `ros2 run demo_nodes_py listener`. If the listener prints "I heard...", ROS 2 is working. Press `Ctrl+C` in both.
+
+**0.6 Check Gazebo.** Run `gazebo`. An empty world should open on your Windows desktop (first start is slow). Close it. If the window is black or Gazebo crashes:
+
+```bash
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+source ~/.bashrc
+```
 
 ### 1. Get the code
 
