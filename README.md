@@ -21,7 +21,7 @@ Slides are in [`slides/`](slides/).
 
 ## Week 1: run the simulation
 
-**What you will see:** Gazebo opens a 5 m x 5 m room with boxes and barrels. A model of the ROSMASTER A1 (with a LiDAR on top) drives around by itself and steers away from anything in front of it.
+**What you will see:** Gazebo opens a 6 m x 6 m room with three boxes and two barrels, spaced so the robot always has room to turn. The corners are cut off at 45° because the A1 steers like a car and cannot turn its way out of a square corner. A model of the ROSMASTER A1 (with a LiDAR on top) drives around by itself and steers away from anything in front of it.
 
 **What is running:**
 

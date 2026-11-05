@@ -40,8 +40,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('gui', default_value='true', description='Show the Gazebo window'),
-        DeclareLaunchArgument('x', default_value='-1.8'),
-        DeclareLaunchArgument('y', default_value='-1.8'),
+        DeclareLaunchArgument('x', default_value='-2.2'),
+        DeclareLaunchArgument('y', default_value='-2.2'),
         DeclareLaunchArgument('yaw', default_value='0.785'),
         gazebo,
         robot_state_publisher,
