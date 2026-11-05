@@ -207,7 +207,7 @@ These run on the real ROSMASTER A1, from Yahboom's [ROSMASTER A1 course](https:/
 
 ```
 ROSMASTER_crash_course/
-├── slides/                       weekly slides (PDF and PPTX)
+├── slides/                       weekly slides (PDF)
 └── src/
     ├── rosmaster_sim/            package: robot model + world + launch file
     │   ├── launch/sim.launch.py
