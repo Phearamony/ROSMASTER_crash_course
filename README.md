@@ -11,7 +11,7 @@ The goal: by Week 4 you understand how a robot like the ROSMASTER A1 maps a room
 | 3 | Control and Sensors | How the A1 moves (/cmd_vel, Ackermann steering, odometry) and what its sensors measure. LiDAR obstacle avoidance on the real A1. Homework: recognize objects with the A1's built-in YOLO. |
 | 4 | ROSMASTER Functions | The A1's built-in functions from the Yahboom docs: SLAM mapping, Nav2 navigation, LiDAR follow/patrol, line following, color tracking, AI functions (object recognition, text or voice commands). |
 
-**Start here: [HOW_TO_RUN.md](HOW_TO_RUN.md)** has the full install and run guide (Windows/WSL2, Week 1 simulation, real A1 commands, troubleshooting).
+Everything you need to install and run is below: [set up your PC](#0-set-up-your-pc-windows-once), [run the simulation](#1-get-the-code), [real A1 commands](#real-a1-commands-weeks-3-and-4), [troubleshooting](#troubleshooting).
 
 Slides are in [`slides/`](slides/).
 
@@ -183,11 +183,31 @@ ros2 run rosmaster_avoidance lidar_avoidance --ros-args -p safe_distance:=1.0 -p
 
 ---
 
+## Real A1 commands (Weeks 3 and 4)
+
+These run on the real ROSMASTER A1, from Yahboom's [ROSMASTER A1 course](https://github.com/YahboomTechnology/ROSMASTER-A1). On a Raspberry Pi 5 or Jetson Nano, enter the robot's Docker container first.
+
+| What | Command |
+|---|---|
+| Chassis driver | `ros2 run yahboomcar_bringup Ackman_driver_A1` |
+| Keyboard driving | `ros2 run yahboomcar_ctrl yahboom_keyboard` |
+| LiDAR (C1) | `ros2 launch sllidar_ros2 sllidar_c1_launch.py` |
+| LiDAR (YDLidar) | `ros2 launch ydlidar_ros2_driver ydlidar_launch.py` |
+| Obstacle avoidance | `ros2 run yahboomcar_laser laser_Avoidance_A1` |
+| LiDAR following | `ros2 run yahboomcar_laser laser_Tracker_A1` |
+| SLAM mapping (gmapping) | `ros2 launch yahboomcar_nav map_gmapping_launch.py` |
+| Save the map | `ros2 launch yahboomcar_nav save_map_launch.py` |
+| USB camera | `ros2 launch usb_cam camera.launch.py` |
+| YOLO object recognition (Week 3 homework) | `cd /root/ultralytics/ultralytics/yahboom_demo && python3 01.detection_camera_usb.py` |
+| Tune parameters live | `ros2 run rqt_reconfigure rqt_reconfigure` |
+
+---
+
 ## Repo layout
 
 ```
 ROSMASTER_crash_course/
-├── slides/                       weekly slides (PDF)
+├── slides/                       weekly slides (PDF and PPTX)
 └── src/
     ├── rosmaster_sim/            package: robot model + world + launch file
     │   ├── launch/sim.launch.py
