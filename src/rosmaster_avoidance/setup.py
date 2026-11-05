@@ -18,7 +18,6 @@ setup(
     license='MIT',
     entry_points={
         'console_scripts': [
-            # ros2 run rosmaster_avoidance lidar_avoidance
             'lidar_avoidance = rosmaster_avoidance.lidar_avoidance:main',
         ],
     },

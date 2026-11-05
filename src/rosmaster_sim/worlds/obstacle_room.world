@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!-- Week 1 obstacle room: 5 m x 5 m, boxes and barrels to avoid -->
 <sdf version="1.6">
   <world name="obstacle_room">
     <include><uri>model://sun</uri></include>

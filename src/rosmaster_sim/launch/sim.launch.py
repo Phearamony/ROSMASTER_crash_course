@@ -1,14 +1,3 @@
-"""Open Gazebo with the obstacle room and spawn the ROSMASTER A1.
-
-What this file starts:
-  1. Gazebo (gzserver + gzclient) with worlds/obstacle_room.world
-  2. robot_state_publisher, which shares the robot's shape (URDF) on /robot_description
-  3. spawn_entity, which puts the robot into the Gazebo world
-
-Options:
-  ros2 launch rosmaster_sim sim.launch.py gui:=false     # no Gazebo window
-  ros2 launch rosmaster_sim sim.launch.py x:=0.0 y:=0.0  # start somewhere else
-"""
 import os
 
 from ament_index_python.packages import get_package_share_directory

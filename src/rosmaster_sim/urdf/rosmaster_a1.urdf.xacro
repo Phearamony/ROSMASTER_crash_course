@@ -1,26 +1,17 @@
 <?xml version="1.0"?>
-<!--
-  Simplified ROSMASTER A1 for Gazebo Classic 11 (ROS 2 Humble).
-  Size and wheel layout follow the real robot (about 28 x 20 x 18 cm,
-  68 mm wheels, Ackermann steering, 360 degree LiDAR on top).
-  Shapes are simple boxes and cylinders so it runs fast on lab PCs.
--->
 <robot name="rosmaster_a1" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- ===== Dimensions (meters) ===== -->
   <xacro:property name="wheel_radius" value="0.034"/>
   <xacro:property name="wheel_width" value="0.026"/>
   <xacro:property name="wheelbase" value="0.16"/>
   <xacro:property name="track_half" value="0.0845"/>
   <xacro:property name="max_steer" value="0.5"/>
 
-  <!-- ===== Colors ===== -->
   <material name="body_gray"><color rgba="0.45 0.48 0.53 1"/></material>
   <material name="dark"><color rgba="0.12 0.13 0.15 1"/></material>
   <material name="wheel_blue"><color rgba="0.12 0.43 0.82 1"/></material>
   <material name="light"><color rgba="0.85 0.87 0.9 1"/></material>
 
-  <!-- ===== Helper: box/cylinder inertia ===== -->
   <xacro:macro name="box_inertia" params="m x y z">
     <inertial>
       <mass value="${m}"/>
@@ -28,7 +19,6 @@
     </inertial>
   </xacro:macro>
 
-  <!-- ===== Body ===== -->
   <link name="base_footprint"/>
 
   <link name="base_link">
@@ -60,7 +50,6 @@
     <origin xyz="0 0 ${wheel_radius}"/>
   </joint>
 
-  <!-- ===== LiDAR ===== -->
   <link name="laser_link">
     <visual>
       <geometry><cylinder radius="0.035" length="0.03"/></geometry>
@@ -115,7 +104,6 @@
     </sensor>
   </gazebo>
 
-  <!-- ===== Wheels ===== -->
   <xacro:macro name="wheel" params="name">
     <link name="${name}_wheel">
       <visual>
@@ -142,7 +130,6 @@
     </gazebo>
   </xacro:macro>
 
-  <!-- Rear wheels: driven -->
   <xacro:wheel name="rear_left"/>
   <xacro:wheel name="rear_right"/>
   <joint name="rear_left_wheel_joint" type="continuous">
@@ -158,7 +145,6 @@
     <axis xyz="0 1 0"/>
   </joint>
 
-  <!-- Front wheels: steered (Ackermann) -->
   <xacro:macro name="steer_hub" params="side y">
     <link name="front_${side}_hub">
       <inertial>
@@ -183,8 +169,6 @@
   <xacro:steer_hub side="left" y="${track_half}"/>
   <xacro:steer_hub side="right" y="${-track_half}"/>
 
-  <!-- The Gazebo Ackermann plugin also needs a "steering wheel" joint.
-       The real A1 has none, so this is a tiny hidden link. -->
   <link name="steering_wheel">
     <inertial>
       <mass value="0.01"/>
@@ -209,7 +193,6 @@
     <mu2>0.3</mu2>
   </gazebo>
 
-  <!-- ===== Drive plugin: listens to /cmd_vel, publishes /odom ===== -->
   <gazebo>
     <plugin name="ackermann_drive" filename="libgazebo_ros_ackermann_drive.so">
       <update_rate>100.0</update_rate>
