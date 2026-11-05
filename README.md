@@ -11,6 +11,8 @@ The goal: by Week 4 you understand how a robot like the ROSMASTER A1 maps a room
 | 3 | Control and Sensors | How the A1 moves (/cmd_vel, Ackermann steering, odometry) and what its sensors measure. LiDAR obstacle avoidance on the real A1. Homework: recognize objects with the A1's built-in YOLO. |
 | 4 | ROSMASTER Functions | The A1's built-in functions from the Yahboom docs: SLAM mapping, Nav2 navigation, LiDAR follow/patrol, line following, color tracking, AI functions (object recognition, text or voice commands). |
 
+**Start here: [HOW_TO_RUN.md](HOW_TO_RUN.md)** has the full install and run guide (Windows/WSL2, Week 1 simulation, real A1 commands, troubleshooting).
+
 Slides are in [`slides/`](slides/).
 
 ![Obstacle room in Gazebo](docs/obstacle_room.png)
