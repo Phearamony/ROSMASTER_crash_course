@@ -2,14 +2,14 @@
 
 A 4-week ROS 2 crash course built around the **Yahboom ROSMASTER A1**, run at KAMAL Laboratory, Gunma University.
 
-The goal: by Week 4 you understand how a research system like our lab's autonomous navigation is built (map, A\* global path, DWA local planner, reinforcement learning on top), and you can run the ROSMASTER A1's built-in functions yourself.
+The goal: by Week 4 you understand how a robot like the ROSMASTER A1 maps a room, plans a path and drives to a goal by itself, and you can run the A1's built-in functions yourself.
 
 | Week | Topic | What you do |
 |---|---|---|
 | 1 | ROS 2 Introduction | What ROS 2 is, nodes and topics, Gazebo. Run a simulated A1 that avoids obstacles with LiDAR. |
 | 2 | Reading the Code | Linux, bash and Python basics. Read the Week 1 node line by line. |
 | 3 | Control and Sensors | How the A1 moves (/cmd_vel, Ackermann steering, odometry) and what its sensors measure. LiDAR obstacle avoidance on the real A1. Homework: recognize objects with the A1's built-in YOLO. |
-| 4 | ROSMASTER Functions | The A1's built-in functions from the Yahboom docs: SLAM mapping, Nav2 navigation, LiDAR follow/patrol, line following, color tracking, AI. How the research demo is built. |
+| 4 | ROSMASTER Functions | The A1's built-in functions from the Yahboom docs: SLAM mapping, Nav2 navigation, LiDAR follow/patrol, line following, color tracking, AI functions (object recognition, text or voice commands). |
 
 Slides are in [`slides/`](slides/).
 
